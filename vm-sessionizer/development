@@ -1,0 +1,14 @@
+#!/bin/bash
+
+SESSIONNAME="development"
+
+tmux has-session -t $SESSIONNAME
+
+HASSESSION=$?
+
+if [[ $HASSESSION != 0 ]]
+then
+    tmux new -s development -d
+fi
+
+tmux switch-client -t $SESSIONNAME
